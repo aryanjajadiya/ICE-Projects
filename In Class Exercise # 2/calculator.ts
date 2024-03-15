@@ -1,3 +1,8 @@
+// Name: Aryan Jajadiya
+// Student ID: 100894608
+// ICE : 02
+// File: calculator.ts
+
 const add = (a: number, b: number): number => {
     return a + b;
   }

@@ -1,7 +1,12 @@
-import * as promptSync from "prompt-sync";
-import * as calculator from "./calculator";
+// Name: Aryan Jajadiya
+// Student ID: 100894608
+// ICE : 02
+// File: index.ts
 
-const prompt = promptSync();
+import promptSync from "prompt-sync"; // Import prompt-sync as default
+import { add, subtract, multiply, divide } from "./calculator"; // Import specific functions from calculator
+
+const userPrompt = promptSync(); // No need for require, use import instead
 
 const readInput = () => {
   console.log("Welcome to the calculator. Choose one of the following options");
@@ -11,40 +16,44 @@ const readInput = () => {
   console.log("4. divide");
   console.log("5. exit");
 
-  const option = prompt(">> ");
+  const option: string = userPrompt(">> "); // Ensure option is a string
 
   if (option !== "5") {
     console.log("Enter the first number");
-    const a = Number(prompt(">> "));
+    const a: number = Number(userPrompt(">> ")); // Ensure a is a number
 
     console.log("Enter the second number");
-    const b = Number(prompt(">> "));
+    const b: number = Number(userPrompt(">> ")); // Ensure b is a number
 
     let c: number;
     switch(option){
       case "1": {
-        c = calculator.add(a, b);
+        c = add(a, b);
         console.log(`a + b = ${c}`);
       }
       break;
 
       case "2": {
-        c = calculator.subtract(a, b);
+        c = subtract(a, b);
         console.log(`a - b = ${c}`);
       }
       break;
 
       case "3": {
-        c = calculator.multiply(a, b);
+        c = multiply(a, b);
         console.log(`a * b = ${c}`);
       }
       break;
 
       case "4": {
-        c = calculator.divide(a, b);
+        c = divide(a, b);
         console.log(`a / b = ${c}`);
       }
       break;
+
+      default: // Handle unexpected input
+        console.log("Invalid option");
+        break;
     }    
 
     readInput();
